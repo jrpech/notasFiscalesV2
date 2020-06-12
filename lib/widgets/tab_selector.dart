@@ -18,8 +18,11 @@ class TabSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
+      selectedItemColor: Colors.redAccent,
+      unselectedItemColor: Colors.grey,
+      backgroundColor: Colors.transparent,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
         key: NotasFiscalesAppKeys.tabs,
         currentIndex: AppTab.values.indexOf(activeTab),
         onTap: (index) => onTabSelected(AppTab.values[index]),

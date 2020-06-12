@@ -32,9 +32,10 @@ class ApiProvider {
   final Map<String, String> headers;
 
   /* Endpoints */
-  static const String _AUTHENTICATE = 'login/authenticate';
-  static const String _SALES = 'Ventas/getVentasByAgrupador';
-  static const String _MESSAGES = 'Account/getMensajes';
+  static const String _NEWS = 'login/authenticate';
+  static const String _BOOKS = 'Ventas/getVentasByAgrupador';
+  static const String _MAGAZINES = 'Account/getMensajes';
+  static const String _ACCOUNT = 'Account/getMensajes';
 
 
   ApiProvider(String endPoint, {this.timeout = const Duration(seconds: 50)})
@@ -73,7 +74,7 @@ class ApiProvider {
   }
 
   Future<AuthenticationResponse> login(AuthenticationRequest request) async {
-    final response = await _post(_AUTHENTICATE, request.toJson());
+    final response = await _post("", request.toJson());
     Map<String, dynamic> json = jsonDecode(response.body.toString());
      AuthenticationResponse authResponse = AuthenticationResponse.fromJson(json);
      if(authResponse.response == Response.SUCCESS) {
@@ -92,13 +93,13 @@ class ApiProvider {
 
   Future<SalesResponse> sales(SalesRequest request) async{
     String path = request.toURL();
-    final response = await this._get(_SALES+"/?"+path);
+    final response = await this._get(_NEWS+"/?"+path);
     Map<String, dynamic> json = jsonDecode(response.body.toString());
     return SalesResponse.fromJson(json);
   }
 
   Future<MessagesResponse> messages() async {
-    final response = await this._get(_MESSAGES);
+    final response = await this._get(_BOOKS);
     Map<String, dynamic> json = jsonDecode(response.body.toString());
     return MessagesResponse.fromJson(json);
   }

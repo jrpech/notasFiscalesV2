@@ -1,4 +1,5 @@
 import 'package:notas_fiscales/blocs/tab/tab.dart';
+import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/models/models.dart';
 import 'package:notas_fiscales/screens/account_page.dart';
 import 'package:notas_fiscales/screens/books_page.dart';
@@ -32,7 +33,7 @@ class HomePage extends StatelessWidget {
       builder: (context, activeTab) {
         return Scaffold(
           appBar: AppBar(
-            title: Text("Titulo"),
+            title: Text(Constants.tabs[activeTab.index].title),
           ),
           body: getBodyWidget(activeTab),
           bottomNavigationBar: TabSelector(
