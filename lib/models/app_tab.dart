@@ -1,1 +1,1 @@
-enum AppTab { settings, home, messages }
+enum AppTab { news, books, magazines, account }

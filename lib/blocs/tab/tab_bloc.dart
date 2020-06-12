@@ -6,7 +6,7 @@ import 'package:notas_fiscales/models/models.dart';
 
 class TabBloc extends Bloc<TabEvent, AppTab> {
   @override
-  AppTab get initialState => AppTab.home;
+  AppTab get initialState => AppTab.news;
 
   @override
   Stream<AppTab> mapEventToState(TabEvent event) async* {

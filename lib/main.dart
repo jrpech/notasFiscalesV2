@@ -10,6 +10,16 @@ import 'routes.dart';
 void main() {
   BlocSupervisor.delegate = SimpleBlocDelegate();
   final userRepository = UserRepository();
+  /*runApp(
+    BlocProvider<AuthenticationBloc>(
+      create: (context) {
+        return AuthenticationBloc(userRepository: userRepository)
+          ..add(AppStarted());
+      },
+      child: App(userRepository: userRepository),
+    ),
+  );*/
+
   runApp(
     BlocProvider<AuthenticationBloc>(
       create: (context) {

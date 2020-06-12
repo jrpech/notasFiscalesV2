@@ -18,11 +18,13 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     if (event is AppStarted) {
       final bool hasToken = await userRepository.hasToken();
 
-      if (hasToken) {
+      yield AuthenticationAuthenticated();
+
+      /*if (hasToken) {
         yield AuthenticationAuthenticated();
       } else {
         yield AuthenticationUnauthenticated();
-      }
+      }*/
     }
 
     if (event is LoggedIn) {
