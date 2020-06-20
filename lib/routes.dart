@@ -19,7 +19,7 @@ class Routes {
     switch (settings.name) {
       case Routes.web_view:
         return MaterialPageRoute(
-            builder: (_) => WebViewContainer("https://notasfiscales.com.mx/producto/actualizacion-fiscal-2020/"), 
+            builder: (_) => WebViewContainer(settings.arguments), 
             settings: settings);
       break;
       case Routes.root:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notas_fiscales/blocs/posts/posts.dart';
+import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/repositories/repository.dart';
 import 'package:notas_fiscales/routes.dart';
 
@@ -68,7 +69,7 @@ class NewsPage extends StatelessWidget {
                             child: RaisedButton(
                               color: Colors.blueGrey,
                               onPressed: () async {
-              await Navigator.pushNamed(context, Routes.web_view, arguments: "");
+              await Navigator.pushNamed(context, Routes.web_view, arguments: Constants.urlBaseProductos);
               },
                               child: const Text('Continuar leyendo', style: TextStyle(color: Colors.white)),
                               ),

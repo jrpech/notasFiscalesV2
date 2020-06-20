@@ -82,7 +82,7 @@
 		</data>
 		<key>Assets.car</key>
 		<data>
-		qaYorEzLyDQvRv/AbdEa/syNqBU=
+		JUhmtn4hJP24XYsb/UvKOI/leEs=
 		</data>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib/objects-13.0+.nib</key>
 		<data>
@@ -126,7 +126,7 @@
 		</data>
 		<key>Frameworks/App.framework/App</key>
 		<data>
-		Da+OukAerGHknTqWEW9D7DyR2+Y=
+		/7OZ6jOz5/y7zk6itK7iozEFiTM=
 		</data>
 		<key>Frameworks/App.framework/Info.plist</key>
 		<data>
@@ -134,7 +134,7 @@
 		</data>
 		<key>Frameworks/App.framework/_CodeSignature/CodeResources</key>
 		<data>
-		oEVQDdr//WwfORMVym/T2k5ENlk=
+		7IZHvVRTn3kNBS+JDFUm14pjsEc=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
 		<data>
@@ -158,7 +158,7 @@
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/kernel_blob.bin</key>
 		<data>
-		U4RCaxnh8QXSGrgws/piWE4sE3Y=
+		hJ5i4kZ5DxddJ2vCGmin1xyrUxA=
 		</data>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -194,7 +194,7 @@
 		</data>
 		<key>Frameworks/flutter_secure_storage.framework/flutter_secure_storage</key>
 		<data>
-		ACfs1pZXEdnQcQMFtCOmciH7aXU=
+		vFDKA3wEXxmRcDg/R9dYAi/GFYc=
 		</data>
 		<key>Frameworks/flutter_statusbarcolor.framework/Info.plist</key>
 		<data>
@@ -206,7 +206,7 @@
 		</data>
 		<key>Frameworks/flutter_statusbarcolor.framework/flutter_statusbarcolor</key>
 		<data>
-		9KCc6KhczLBDH98x8loEqh4m1MQ=
+		vs8+2stjhSYe6urZM5QRwbQcoLw=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
@@ -246,11 +246,11 @@
 		</data>
 		<key>Frameworks/webview_flutter.framework/webview_flutter</key>
 		<data>
-		Y3HPdO6XgoiwLnlOsUJCbcxfQeo=
+		o3NrqhfC7Z/sTBguUJrlgDripjc=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		vyKDpe8g9ZgRxz9BY2Wjmngwz+g=
+		f4k/0J0mYMlZ4HLoMYC9v8Hx22o=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -472,11 +472,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qaYorEzLyDQvRv/AbdEa/syNqBU=
+			JUhmtn4hJP24XYsb/UvKOI/leEs=
 			</data>
 			<key>hash2</key>
 			<data>
-			alzV/AIHa2A2+P1zRUe7+3Py9F1v9LHlINlOF9JZ8i0=
+			vYl7qZgiaRTu2ASMSWGM7Sa/eRw69m+waVYHrUDn9Os=
 			</data>
 		</dict>
 		<key>Base.lproj/LaunchScreen.storyboardc/01J-lp-oVM-view-Ze5-6b-2t3.nib/objects-13.0+.nib</key>
@@ -593,11 +593,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Da+OukAerGHknTqWEW9D7DyR2+Y=
+			/7OZ6jOz5/y7zk6itK7iozEFiTM=
 			</data>
 			<key>hash2</key>
 			<data>
-			UgF2fmjjPf5fTkkl94y+Kq1hUJpImwDlyCftbYmgtCI=
+			wt7xdbHAtvDhyEHX83unj6m2Y97n6RPsq6MDptN6f+I=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/Info.plist</key>
@@ -615,11 +615,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oEVQDdr//WwfORMVym/T2k5ENlk=
+			7IZHvVRTn3kNBS+JDFUm14pjsEc=
 			</data>
 			<key>hash2</key>
 			<data>
-			HZ5lw5mVaL9sfOGiVIUWMTHtXaeU6UkXsXH+pAhwlmU=
+			qOb59fVeG3tjvr04sjkDN8i7u8hFPoxC/mI2KMMv8ms=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/AssetManifest.json</key>
@@ -681,11 +681,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			U4RCaxnh8QXSGrgws/piWE4sE3Y=
+			hJ5i4kZ5DxddJ2vCGmin1xyrUxA=
 			</data>
 			<key>hash2</key>
 			<data>
-			a2Ksi+A+OTvCQV+70R7FzCD4EAbspuG2edWI01L2jrU=
+			c7CLIzx4yF8+1FRP3r5kVBp6WwVGUVxz9BJC/J+o5t0=
 			</data>
 		</dict>
 		<key>Frameworks/App.framework/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -780,11 +780,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ACfs1pZXEdnQcQMFtCOmciH7aXU=
+			vFDKA3wEXxmRcDg/R9dYAi/GFYc=
 			</data>
 			<key>hash2</key>
 			<data>
-			FwKMyVCtKBaweEoIqMyHHuxKcuUzRAKpsmK6CJZiW80=
+			TEEpykHxcw/9uhYf4hufcvmO5ERPZmv+GnvKVlS1N6k=
 			</data>
 		</dict>
 		<key>Frameworks/flutter_statusbarcolor.framework/Info.plist</key>
@@ -813,11 +813,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			9KCc6KhczLBDH98x8loEqh4m1MQ=
+			vs8+2stjhSYe6urZM5QRwbQcoLw=
 			</data>
 			<key>hash2</key>
 			<data>
-			VtYgfWd6PbRp5PLfY1QzU+ci/5BKCianAhdz2KM0BCM=
+			Gt+MOddhCjFqiZ3u21hifAx83uw/zKdccjFPv9WuoRo=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
@@ -923,11 +923,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Y3HPdO6XgoiwLnlOsUJCbcxfQeo=
+			o3NrqhfC7Z/sTBguUJrlgDripjc=
 			</data>
 			<key>hash2</key>
 			<data>
-			MA59LBM6KMWrHdjJpdPBt1/IElj/OPE+6O+W6OKVbEw=
+			X/Vr9P2X2BFtlvRWuE+1SsZZQg1xUkEh8bXx6Sop1HU=
 			</data>
 		</dict>
 	</dict>

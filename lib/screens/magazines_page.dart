@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notas_fiscales/blocs/magazines/magazines.dart';
+import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/repositories/magazines.dart';
+import 'package:notas_fiscales/routes.dart';
 
 class MagazinesPage extends StatelessWidget {
   Widget getContent(BuildContext context) {
 
-    var widthScreen = MediaQuery.of(context).size.width * 0.92;
+    var widthScreen = MediaQuery.of(context).size.width * 0.9;
+    var columnImg = widthScreen / 2.3;
+    var columnText = widthScreen / 1.6;
 
     return BlocProvider<MagazinesBloc>(
       create: (context) {
@@ -24,38 +28,44 @@ class MagazinesPage extends StatelessWidget {
                 itemCount: state.magazines.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Column(children: <Widget>[
-                      Row(
+                    contentPadding: EdgeInsets.only(top: 15.0, bottom: 15.0),
+                    title: 
+                    Row(children: <Widget>[
+                      Column(children: <Widget>[
+                        Image.network(state.magazines[index].img_url, 
+                        width: columnImg,
+                        fit:BoxFit.fitWidth)
+                      ],),
+                      Column(
+                        children: <Widget>[
+                          Row(
                         children: <Widget>[
                           Container(
-                            width: widthScreen,
+                            width: columnText,
                             child: Text(state.magazines[index].post_title,
                             style: TextStyle(fontWeight: FontWeight.bold),
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 50,
-                            textAlign: TextAlign.center,
+                            maxLines: 4,
+                            textAlign: TextAlign.left,
                             )
-                          )],
-                      ),
-                      Row(children: <Widget>[
-                        Image.network(state.magazines[index].img_url, 
-                        width: widthScreen,
-                        fit:BoxFit.fitWidth)
-                      ],),
-                      Row(
+                          )]),
+                          Row(
                         children: <Widget>[
                           Container(
-                            width: widthScreen,
-                            child: Text(state.magazines[index].post_content,
+                            width: columnText,
+                            child: Text("250.00",
+                            style: TextStyle(color: Colors.redAccent, fontSize: 22, fontWeight: FontWeight.bold),
                             overflow: TextOverflow.ellipsis,
                             maxLines: 50,
                             textAlign: TextAlign.justify,
                             )
                           )],
                       ),
+                          ],
+                      ),
                     ],),
                     onTap: () async {
-                      //await Navigator.pushNamed(context, Routes.pollList, arguments: filters.copyWith(topic: state.resumen[index].id));
+                      await Navigator.pushNamed(context, Routes.web_view, arguments: Constants.urlBaseProductos + state.magazines[index].post_name);
                     },
                   );
                 });

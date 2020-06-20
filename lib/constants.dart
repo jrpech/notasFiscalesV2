@@ -10,4 +10,5 @@ class Constants {
     TabItem(title: "Mis Compras", icon: Icons.menu, key: NotasFiscalesAppKeys.accountTab),
   ];
   static final String backendServer = 'http://apis.notasfiscales.com.mx/api';
+  static final String urlBaseProductos = 'https://notasfiscales.com.mx/producto/';
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notas_fiscales/blocs/books/books.dart';
+import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/repositories/books.dart';
+import 'package:notas_fiscales/routes.dart';
 
 class BooksPage extends StatelessWidget {
   
@@ -64,7 +66,7 @@ class BooksPage extends StatelessWidget {
                       ),
                     ],),
                     onTap: () async {
-                      //await Navigator.pushNamed(context, Routes.pollList, arguments: filters.copyWith(topic: state.resumen[index].id));
+                      await Navigator.pushNamed(context, Routes.web_view, arguments: Constants.urlBaseProductos + state.books[index].post_name);
                     },
                   );
                 });
