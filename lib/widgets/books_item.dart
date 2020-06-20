@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:notas_fiscales/keys.dart';
 import 'package:notas_fiscales/models/models.dart';
 
-class SalesItem extends StatelessWidget {
+/*class SalesItem extends StatelessWidget {
   final BranchSale sales;
 
   SalesItem({
@@ -33,3 +33,4 @@ class SalesItem extends StatelessWidget {
 }
 
 
+*/

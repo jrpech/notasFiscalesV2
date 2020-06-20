@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:notas_fiscales/keys.dart';
 import 'package:notas_fiscales/models/models.dart';
 
-class NewsItem extends StatelessWidget {
+/*class NewsItem extends StatelessWidget {
   final Message message;
 
   NewsItem({
@@ -30,4 +30,4 @@ class NewsItem extends StatelessWidget {
       ),
     );
   }
-}
+}*/

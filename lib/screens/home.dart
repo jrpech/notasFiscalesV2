@@ -1,3 +1,4 @@
+import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:notas_fiscales/blocs/tab/tab.dart';
 import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/models/models.dart';
@@ -29,10 +30,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tabBloc = BlocProvider.of<TabBloc>(context);
+
+    FlutterStatusbarcolor.setStatusBarWhiteForeground(false);
+
     return BlocBuilder<TabBloc, AppTab>(
       builder: (context, activeTab) {
         return Scaffold(
           appBar: AppBar(
+            backgroundColor: Colors.redAccent,            
             title: Text(Constants.tabs[activeTab.index].title),
           ),
           body: getBodyWidget(activeTab),

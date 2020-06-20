@@ -9,6 +9,5 @@ class Constants {
     TabItem(title: "Revistas", icon: Icons.receipt, key: NotasFiscalesAppKeys.magazinesTab),
     TabItem(title: "Mis Compras", icon: Icons.menu, key: NotasFiscalesAppKeys.accountTab),
   ];
-  static final String backendServer = 'http://apis.notasfiscales.com.mx/api/';
+  static final String backendServer = 'http://apis.notasfiscales.com.mx/api';
 }
-

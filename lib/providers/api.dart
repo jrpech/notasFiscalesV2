@@ -1,4 +1,8 @@
 import 'package:http/http.dart' as http;
+import 'package:notas_fiscales/models/models.dart';
+import 'package:notas_fiscales/providers/payloads/books_response.dart';
+import 'package:notas_fiscales/providers/payloads/magazines_response.dart';
+import 'package:notas_fiscales/providers/payloads/news_response.dart';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:collection';
@@ -32,9 +36,9 @@ class ApiProvider {
   final Map<String, String> headers;
 
   /* Endpoints */
-  static const String _NEWS = 'login/authenticate';
-  static const String _BOOKS = 'Ventas/getVentasByAgrupador';
-  static const String _MAGAZINES = 'Account/getMensajes';
+  static const String _NEWS = 'blogs';
+  static const String _BOOKS = 'libros';
+  static const String _MAGAZINES = 'revistas';
   static const String _ACCOUNT = 'Account/getMensajes';
 
 
@@ -91,7 +95,28 @@ class ApiProvider {
     return this.headers[HttpHeaders.authorizationHeader];
   }
 
-  Future<SalesResponse> sales(SalesRequest request) async{
+  Future<List<Post>> news() async {
+    final response = await this._get(_NEWS);
+    Map<String, dynamic> json = jsonDecode(response.body);
+    print(json);
+    return NewsResponse.fromJson(json).data;
+  }
+
+  Future<List<Book>> books() async {
+    final response = await this._get(_BOOKS);
+    Map<String, dynamic> json = jsonDecode(response.body);
+    print(json);
+    return BooksResponse.fromJson(json).data;
+  }
+
+  Future<List<Magazine>> magazines() async {
+    final response = await this._get(_MAGAZINES);
+    Map<String, dynamic> json = jsonDecode(response.body);
+    print(json);
+    return MagazinesResponse.fromJson(json).data;
+  }
+
+  /*Future<SalesResponse> sales(SalesRequest request) async{
     String path = request.toURL();
     final response = await this._get(_NEWS+"/?"+path);
     Map<String, dynamic> json = jsonDecode(response.body.toString());
@@ -102,6 +127,6 @@ class ApiProvider {
     final response = await this._get(_BOOKS);
     Map<String, dynamic> json = jsonDecode(response.body.toString());
     return MessagesResponse.fromJson(json);
-  }
+  }*/
 
 }

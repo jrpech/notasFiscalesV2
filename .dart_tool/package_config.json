@@ -176,6 +176,12 @@
       "languageVersion": "1.19"
     },
     {
+      "name": "flutter_statusbarcolor",
+      "rootUri": "file:///Users/dev/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_statusbarcolor-0.2.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/dev/development/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -536,6 +542,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "webview_flutter",
+      "rootUri": "file:///Users/dev/development/flutter/.pub-cache/hosted/pub.dartlang.org/webview_flutter-0.3.22+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.7"
+    },
+    {
       "name": "xml",
       "rootUri": "file:///Users/dev/development/flutter/.pub-cache/hosted/pub.dartlang.org/xml-3.6.1",
       "packageUri": "lib/",
@@ -554,7 +566,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-06-12T04:37:51.348480Z",
+  "generated": "2020-06-20T03:41:40.093093Z",
   "generator": "pub",
   "generatorVersion": "2.8.2"
 }

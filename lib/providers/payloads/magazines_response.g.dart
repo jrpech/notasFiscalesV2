@@ -1,0 +1,21 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of magazines_response;
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+MagazinesResponse _$MagazinesResponseFromJson(Map<String, dynamic> json) {
+  return MagazinesResponse(
+    data: (json['data'] as List)
+        ?.map((e) =>
+            e == null ? null : Magazine.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
+  );
+}
+
+Map<String, dynamic> _$MagazinesResponseToJson(MagazinesResponse instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+    };
