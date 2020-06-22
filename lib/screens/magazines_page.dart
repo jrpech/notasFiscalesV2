@@ -6,6 +6,14 @@ import 'package:notas_fiscales/repositories/magazines.dart';
 import 'package:notas_fiscales/routes.dart';
 
 class MagazinesPage extends StatelessWidget {
+
+  String getURLImg(String url) {
+    if(url == null){
+      return Constants.imgNotFound;
+    }
+    return url;
+  }
+
   Widget getContent(BuildContext context) {
 
     var widthScreen = MediaQuery.of(context).size.width * 0.9;
@@ -31,7 +39,7 @@ class MagazinesPage extends StatelessWidget {
                     title: 
                     Row(children: <Widget>[
                       Column(children: <Widget>[
-                        Image.network(state.magazines[index].img_url, 
+                        Image.network(getURLImg(state.magazines[index].img_url), 
                         width: columnImg,
                         fit:BoxFit.fitWidth)
                       ],),

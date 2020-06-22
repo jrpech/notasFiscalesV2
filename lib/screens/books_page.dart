@@ -6,6 +6,13 @@ import 'package:notas_fiscales/repositories/books.dart';
 import 'package:notas_fiscales/routes.dart';
 
 class BooksPage extends StatelessWidget {
+
+  String getURLImg(String url) {
+    if(url == null){
+      return Constants.imgNotFound;
+    }
+    return url;
+  }
   
   Widget getContent(BuildContext context) {
 
@@ -33,7 +40,7 @@ class BooksPage extends StatelessWidget {
                     title: 
                     Row(children: <Widget>[
                       Column(children: <Widget>[
-                        Image.network(state.books[index].img_url, 
+                        Image.network(getURLImg(state.books[index].img_url), 
                         width: columnImg,
                         fit:BoxFit.fitWidth)
                       ],),

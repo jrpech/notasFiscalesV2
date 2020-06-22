@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notas_fiscales/blocs/authentication/authentication.dart';
 import 'package:notas_fiscales/repositories/user.dart';
 import 'package:notas_fiscales/screens/login_form.dart';
+import 'package:notas_fiscales/screens/my_shopping_list.dart';
 
 class AccountPage extends StatelessWidget {
 
@@ -12,7 +13,15 @@ class AccountPage extends StatelessWidget {
         create: (context) {
           return AuthenticationBloc(userRepository: RepositoryProvider.of<UserRepository>(context))..add(ValidateLoggedIn());
         },
-        child: LoginForm(),
+        child: 
+        BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        builder: (context, state) {
+            if(state is AuthenticationAuthenticated) {
+              return MyShoppingListPage();
+            }
+
+            return LoginForm();
+          }),
       );
   }
 }

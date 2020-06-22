@@ -11,4 +11,5 @@ class Constants {
   ];
   static final String backendServer = 'http://apis.notasfiscales.com.mx/api';
   static final String urlBaseProductos = 'https://notasfiscales.com.mx/producto/';
+  static final String imgNotFound = "https://cdn.browshot.com/static/images/not-found.png";
 }
