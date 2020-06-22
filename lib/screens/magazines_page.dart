@@ -21,7 +21,6 @@ class MagazinesPage extends StatelessWidget {
       },
       child: BlocBuilder<MagazinesBloc, MagazinesState>(
         builder: (BuildContext contex, MagazinesState state) {
-
           if (state is MagazinesLoaded) {
             //return Text("CONSULTADOs: " + state.quote.length.toString());
              return ListView.builder(

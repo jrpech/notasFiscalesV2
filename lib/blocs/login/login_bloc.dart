@@ -27,7 +27,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   Stream<LoginState> mapEventToState(LoginEvent event) async* {
-    if (event is LoginButtonPressed) {
+    /*if (event is LoginButtonPressed) {
       bool validUser = this._isUserValid(event.username);
       bool validPassword = this._isPasswordValid(event.password);
 
@@ -53,7 +53,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             validUser: validUser,
         );
       }
-    }
+    }*/
   }
 
   bool _isUserValid(String email) {

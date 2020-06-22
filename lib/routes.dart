@@ -27,7 +27,17 @@ class Routes {
             builder: (_) =>
                 BlocBuilder<AuthenticationBloc, AuthenticationState>(
                     builder: (context, state) {
-                  if (state is AuthenticationUninitialized) {
+
+                      return MultiBlocProvider(
+                      providers: [
+                        BlocProvider<TabBloc>(
+                          create: (context) => TabBloc(),
+                        ),
+                      ],
+                      child: HomePage(),
+                    );
+
+                  /*if (state is AuthenticationUninitialized) {
                     return SplashPage();
                   }
                   if (state is AuthenticationAuthenticated) {
@@ -45,7 +55,10 @@ class Routes {
                     return LoginPage(userRepository: userRepository);
                   }
                   return LoadingIndicator();
-                }));
+                }*/
+                }
+                ));
+                break;
     }
   }
 }

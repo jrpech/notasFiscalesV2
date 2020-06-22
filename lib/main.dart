@@ -1,11 +1,8 @@
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 import 'package:notas_fiscales/blocs/authentication/authentication.dart';
 import 'package:notas_fiscales/blocs/simple_bloc_delegate.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notas_fiscales/constants.dart';
-import 'package:notas_fiscales/providers/api.dart';
 import 'package:notas_fiscales/repositories/books.dart';
 import 'package:notas_fiscales/repositories/magazines.dart';
 import 'package:notas_fiscales/repositories/repository.dart';
@@ -18,25 +15,6 @@ void main() {
   final userRepository = UserRepository();
 
   WidgetsFlutterBinding.ensureInitialized();
-  ApiProvider api = ApiProvider(Constants.backendServer);
-
-  /*runApp(
-    BlocProvider<AuthenticationBloc>(
-      create: (context) {
-        return AuthenticationBloc(userRepository: userRepository)
-          ..add(AppStarted());
-      },
-      child: App(userRepository: userRepository),
-    ),
-  );*/
-
-  /*create: (context) {
-        return AuthenticationBloc(userRepository: userRepository)
-          ..add(AppStarted());
-      },
-      child: App(userRepository: userRepository),
-    ),*/
-
   runApp(
     MultiRepositoryProvider(
       providers: [
