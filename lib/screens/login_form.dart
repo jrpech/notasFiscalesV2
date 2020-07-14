@@ -64,35 +64,56 @@ class _LoginFormState extends State<LoginForm> {
           }
 
           return Form(
-            child: Column(
-              children: [
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'username'),
-                  keyboardType: TextInputType.emailAddress,
-                  controller: _usernameController,
-                  autovalidate: true,
-                  validator: (_) {
-                    //return state.validUser ? null : 'Invalid Email';
-                  },
+              child: Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1, // 20%
+                child: Container(),
+              ),
+              Expanded(
+                flex: 8, // 60%
+                child: Column(
+                  children: [
+                    SizedBox(height: 20),
+                    Text(
+                      "Para poder acceder a sus compras es necesario que inicie sesión con sus credenciales.",
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: 10),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: 'username'),
+                      keyboardType: TextInputType.emailAddress,
+                      controller: _usernameController,
+                      autovalidate: true,
+                      validator: (_) {
+                        //return state.validUser ? null : 'Invalid Email';
+                      },
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: 'password'),
+                      controller: _passwordController,
+                      obscureText: true,
+                      autovalidate: true,
+                      validator: (_) {
+                        //return state.validPassword ? null : 'Invalid Password';
+                      },
+                    ),
+                    SizedBox(height: 10),
+                    RaisedButton(
+                      onPressed: state is! AuthenticationLoading
+                          ? _onLoginButtonPressed
+                          : null,
+                      child: Text('Login'),
+                    ),
+                  ],
                 ),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'password'),
-                  controller: _passwordController,
-                  obscureText: true,
-                  autovalidate: true,
-                  validator: (_) {
-                    //return state.validPassword ? null : 'Invalid Password';
-                  },
-                ),
-                RaisedButton(
-                  onPressed: state is! AuthenticationLoading
-                      ? _onLoginButtonPressed
-                      : null,
-                  child: Text('Login'),
-                ),
-              ],
-            ),
-          );
+              ),
+              Expanded(
+                flex: 1, // 20%
+                child: Container(),
+              )
+            ],
+          ));
         },
       ),
     );

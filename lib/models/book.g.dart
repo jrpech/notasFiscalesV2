@@ -23,6 +23,7 @@ Book _$BookFromJson(Map<String, dynamic> json) {
     term_order: json['term_order'] as String,
     pdf_url: json['pdf_url'] as String,
     img_url: json['img_url'] as String,
+    price: json['price'] as String,
   );
 }
 
@@ -42,4 +43,5 @@ Map<String, dynamic> _$BookToJson(Book instance) => <String, dynamic>{
       'term_order': instance.term_order,
       'pdf_url': instance.pdf_url,
       'img_url': instance.img_url,
+      'price': instance.price,
     };

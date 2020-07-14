@@ -8,10 +8,6 @@
 		<data>
 		pXsnjYVkAdouQSnGg2hkegS9oRY=
 		</data>
-		<key>Headers/PathProviderPlugin.h</key>
-		<data>
-		zE3642qmZJyDgUWyg3VY/cKRLbY=
-		</data>
 		<key>Headers/path_provider-umbrella.h</key>
 		<data>
 		9jH0xmAzvuQrXPcB50h9KkvmApY=
@@ -36,17 +32,6 @@
 			<key>hash2</key>
 			<data>
 			aIseqruSAXz9eCFGQqMt5kbxdmJ/iQ71kd5eq49mJRg=
-			</data>
-		</dict>
-		<key>Headers/PathProviderPlugin.h</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			zE3642qmZJyDgUWyg3VY/cKRLbY=
-			</data>
-			<key>hash2</key>
-			<data>
-			FEDmtqZByMqZsyi+p43CAVrFoyhRbujvGTPLmoJguHk=
 			</data>
 		</dict>
 		<key>Headers/path_provider-umbrella.h</key>

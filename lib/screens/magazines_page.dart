@@ -56,7 +56,8 @@ class MagazinesPage extends StatelessWidget {
                                 Container(
                                     width: columnText,
                                     child: Text(
-                                      "250.00",
+                                      Utils.setPrice(
+                                          state.magazines[index].price),
                                       style: TextStyle(
                                           color: Colors.redAccent,
                                           fontSize: 22,

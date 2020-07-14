@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:notas_fiscales/blocs/posts/posts.dart';
 import 'package:notas_fiscales/models/post.dart';
 import 'package:notas_fiscales/repositories/repository.dart';
+import 'package:notas_fiscales/routes.dart';
+import 'package:notas_fiscales/utils/Utils.dart';
 
 class PostDetailPage extends StatelessWidget {
   final Post post;
@@ -20,7 +23,48 @@ class PostDetailPage extends StatelessWidget {
       child: BlocBuilder<PostsBloc, PostsState>(
         builder: (BuildContext contex, PostsState state) {
           if (state is PostDetailLoaded) {
-            return Text(state.post.post_title);
+            return ListView(
+              shrinkWrap: true,
+              physics: ClampingScrollPhysics(),
+              padding: const EdgeInsets.all(8),
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Container(
+                        width: widthScreen,
+                        child: Text(
+                          state.post.post_title,
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 100,
+                          textAlign: TextAlign.justify,
+                        ))
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: <Widget>[
+                    Image.network(Utils.getURLImg(post.picture_url),
+                        width: widthScreen, fit: BoxFit.fitWidth)
+                  ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: <Widget>[
+                    Container(
+                        width: widthScreen,
+                        child: Html(
+                          data: state.post.post_content,
+                          onLinkTap: (url) async {
+                            await Navigator.pushNamed(context, Routes.web_view,
+                                arguments: url);
+                          },
+                        ))
+                  ],
+                ),
+                SizedBox(height: 10),
+              ],
+            );
 
             /*ListView.builder(
                 itemCount: state.posts.length,
@@ -34,9 +78,11 @@ class PostDetailPage extends StatelessWidget {
                   );
                 });*/
           }
-          if (state is PostsLoading) {
+          if (state is PostDetailLoading) {
             return Center(
-              child: CircularProgressIndicator(),
+              child: CircularProgressIndicator(
+                backgroundColor: Colors.blueGrey,
+              ),
             );
           }
           // TODO: Loading if it's required? may be not because should be local.
@@ -48,6 +94,11 @@ class PostDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return getContent(context);
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Noticia"),
+          backgroundColor: Colors.redAccent,
+        ),
+        body: getContent(context));
   }
 }

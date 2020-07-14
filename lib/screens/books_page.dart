@@ -4,6 +4,7 @@ import 'package:notas_fiscales/blocs/books/books.dart';
 import 'package:notas_fiscales/constants.dart';
 import 'package:notas_fiscales/repositories/books.dart';
 import 'package:notas_fiscales/routes.dart';
+import 'package:notas_fiscales/utils/Utils.dart';
 
 class BooksPage extends StatelessWidget {
   String getURLImg(String url) {
@@ -60,7 +61,7 @@ class BooksPage extends StatelessWidget {
                                 Container(
                                     width: columnText,
                                     child: Text(
-                                      "250.00",
+                                      Utils.setPrice(state.books[index].price),
                                       style: TextStyle(
                                           color: Colors.redAccent,
                                           fontSize: 22,
@@ -88,6 +89,11 @@ class BooksPage extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           }
+
+          if (state is BooksEmpty) {
+            return Text("Cargando...");
+          }
+
           return Text("No se encontraron valores");
         },
       ),
