@@ -5,6 +5,8 @@ import 'package:notas_fiscales/blocs/tab/tab.dart';
 import 'package:notas_fiscales/models/models.dart';
 
 class TabBloc extends Bloc<TabEvent, AppTab> {
+  TabBloc(AppTab initialState) : super(initialState);
+
   @override
   AppTab get initialState => AppTab.news;
 

@@ -5,24 +5,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:notas_fiscales/blocs/authentication/authentication.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthenticationBloc
+    extends Bloc<AuthenticationEvent, AuthenticationState> {
   final UserRepository userRepository;
 
   @override
   AuthenticationState get initialState => AuthenticationUnauthenticated();
 
-  AuthenticationBloc({@required this.userRepository}): assert(userRepository != null);
+  AuthenticationBloc({@required this.userRepository})
+      : assert(userRepository != null),
+        super(null);
 
   @override
   Stream<AuthenticationState> mapEventToState(
-      AuthenticationEvent event,
-      ) async* {
-
-    if(event is ValidateLoggedIn) {
+    AuthenticationEvent event,
+  ) async* {
+    if (event is ValidateLoggedIn) {
       yield AuthenticationLoading();
       bool res = await userRepository.hasToken();
 
-      if(res){
+      if (res) {
         yield AuthenticationAuthenticated();
       } else {
         yield AuthenticationUnauthenticated();
@@ -31,13 +33,26 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
 
     if (event is LoginButtonPressed) {
       yield AuthenticationLoading();
-      
-      if(event.username == "demo1" && event.password == "1234"){
-        await userRepository.persistToken("event.token.23242d3223434dx234d3523f8h9gte7ygyg");
-        yield AuthenticationAuthenticated();
-      } else {
-        yield AuthenticationError();
+
+      /*bool validUser = this._isUserValid(event.username);
+      bool validPassword = this._isPasswordValid(event.password);*/
+
+      try {
+        final token = await userRepository.authenticate(
+          username: event.username,
+          password: event.password,
+        );
+
+        if (token != null) {
+          await userRepository.persistToken(token.id.toString());
+          yield AuthenticationAuthenticated();
+        } else {
+          yield AuthenticationError("Ocurrió un error");
+        }
+      } catch (error) {
+        yield AuthenticationError(error);
       }
+
       /*bool validUser = this._isUserValid(event.username);
       bool validPassword = this._isPasswordValid(event.password);
 
@@ -77,5 +92,4 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
       yield AuthenticationUnauthenticated();
     }
   }
-
 }

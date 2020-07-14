@@ -1,27 +1,40 @@
+import 'dart:convert';
+
 import 'package:meta/meta.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:notas_fiscales/models/order.dart';
+import 'package:notas_fiscales/models/user.dart';
 import 'package:notas_fiscales/providers/api.dart';
 import 'package:notas_fiscales/constants.dart';
-class UserRepository {
+import 'package:notas_fiscales/providers/payloads/response_auth.dart';
+import 'package:notas_fiscales/providers/payloads/response_products.dart';
 
+class UserRepository {
   final storage = new FlutterSecureStorage();
   final provider = new ApiProvider(Constants.backendServer);
 
   static const String _persistKey = "user_token";
 
-
-  Future<String> authenticate({
+  Future<User> authenticate({
     @required String username,
     @required String password,
   }) async {
-    AuthenticationResponse response = await provider.login(AuthenticationRequest(
-      username: username,
-      password: password
-    ));
-    if(response.response == Response.ERROR) {
-      throw(response.message);
+    ResponseAuth response = await provider
+        .login(AuthenticationRequest(username: username, password: password));
+
+    if (response.status == "error") {
+      throw (response.error);
     }
-    return response.token;
+    return response.user;
+  }
+
+  Future<List<Order>> getProducts() async {
+    String id = await this.getPersistedToken();
+    ResponseProducts response = await provider.products(id);
+    if (response.success == false) {
+      throw ("OCURRIO UN ERROR AL CONSULTAR LA INFORMACIÓN");
+    }
+    return response.data;
   }
 
   Future<void> deleteToken() async {

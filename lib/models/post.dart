@@ -7,7 +7,6 @@ part 'post.g.dart';
 
 @JsonSerializable()
 class Post {
-
   @JsonKey(name: "id")
   int id;
 
@@ -22,8 +21,7 @@ class Post {
 
   Post({this.id, this.post_title, this.post_content, this.picture_url});
 
-  factory Post.fromJson(Map<String, dynamic> json) =>
-      _$PostFromJson(json);
+  factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
 
   Map<String, dynamic> toJson() => _$PostToJson(this);
 }

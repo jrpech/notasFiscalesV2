@@ -7,7 +7,9 @@ import 'package:notas_fiscales/repositories/magazines.dart';
 class MagazinesBloc extends Bloc<MagazinesEvent, MagazinesState> {
   final MagazinesRepository repository;
 
-  MagazinesBloc({@required this.repository}) : assert(repository != null);
+  MagazinesBloc({@required this.repository})
+      : assert(repository != null),
+        super(null);
 
   @override
   MagazinesState get initialState => MagazinesEmpty();
@@ -17,7 +19,6 @@ class MagazinesBloc extends Bloc<MagazinesEvent, MagazinesState> {
     if (event is FetchMagazines) {
       yield MagazinesLoading();
       try {
-
         final List<Magazine> magazines = await repository.getMagazines();
         print("RES: " + magazines.length.toString());
         yield MagazinesLoaded(magazines: magazines);

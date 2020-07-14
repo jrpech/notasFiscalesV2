@@ -11,12 +11,11 @@ import 'repositories/user.dart';
 import 'routes.dart';
 
 void main() {
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  //BlocSupervisor.delegate = SimpleBlocDelegate();
   final userRepository = UserRepository();
 
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(
-    MultiRepositoryProvider(
+  runApp(MultiRepositoryProvider(
       providers: [
         RepositoryProvider<UserRepository>(
           create: (context) => UserRepository(),
@@ -37,14 +36,13 @@ void main() {
             create: (context) {
               return AuthenticationBloc(
                   userRepository:
-                  RepositoryProvider.of<UserRepository>(context))
+                      RepositoryProvider.of<UserRepository>(context))
                 ..add(AppStarted());
             },
           ),
         ],
         child: App(),
-        )
-    ));
+      )));
 }
 
 /*class App extends StatelessWidget {

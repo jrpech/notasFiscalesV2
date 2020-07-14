@@ -7,7 +7,9 @@ import 'package:notas_fiscales/repositories/books.dart';
 class BooksBloc extends Bloc<BooksEvent, BooksState> {
   final BooksRepository repository;
 
-  BooksBloc({@required this.repository}) : assert(repository != null);
+  BooksBloc({@required this.repository})
+      : assert(repository != null),
+        super(null);
 
   @override
   BooksState get initialState => BooksEmpty();
@@ -17,7 +19,6 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
     if (event is FetchBooks) {
       yield BooksLoading();
       try {
-
         final List<Book> books = await repository.getPosts();
         print("RES: " + books.length.toString());
         yield BooksLoaded(books: books);

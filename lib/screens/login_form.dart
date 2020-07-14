@@ -31,28 +31,26 @@ class _LoginFormState extends State<LoginForm> {
 
     return BlocListener<AuthenticationBloc, AuthenticationState>(
       listener: (context, state) {
-        if(state is AuthenticationError) {
+        if (state is AuthenticationError) {
           Scaffold.of(context).showSnackBar(
             SnackBar(
-              content: Text('OCURRIO UN ERROR AL INGRESAR'),
+              content: Text(state.error),
               backgroundColor: Colors.red,
-              ),
+            ),
           );
         }
       },
       child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-
-          if(state is AuthenticationLoading) {
+          if (state is AuthenticationLoading) {
             return Center(
               child: CircularProgressIndicator(),
             );
           }
 
-          if(state is AuthenticationAuthenticated) {
+          if (state is AuthenticationAuthenticated) {
             return Column(
               children: <Widget>[
-
                 //MyShoppingListPage();
 
                 /*RaisedButton(
@@ -65,41 +63,36 @@ class _LoginFormState extends State<LoginForm> {
             );
           }
 
-          
-
-
-
-
-            return Form(
-              child: Column(
-                children: [
-                  TextFormField(
-                    decoration: InputDecoration(labelText: 'username'),
-                    keyboardType: TextInputType.emailAddress,
-                    controller: _usernameController,
-                    autovalidate: true,
-                    validator: (_) {
-                      //return state.validUser ? null : 'Invalid Email';
-                      },
-                    ),
-                  TextFormField(
-                    decoration: InputDecoration(labelText: 'password'),
-                    controller: _passwordController,
-                    obscureText: true,
-                    autovalidate: true,
-                    validator: (_) {
-                      //return state.validPassword ? null : 'Invalid Password';
-                      },
-                    ),
-                  RaisedButton(
-                    onPressed:
-                    state is! AuthenticationLoading ? _onLoginButtonPressed : null,
-                    child: Text('Login'),
-                  ),
+          return Form(
+            child: Column(
+              children: [
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'username'),
+                  keyboardType: TextInputType.emailAddress,
+                  controller: _usernameController,
+                  autovalidate: true,
+                  validator: (_) {
+                    //return state.validUser ? null : 'Invalid Email';
+                  },
+                ),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'password'),
+                  controller: _passwordController,
+                  obscureText: true,
+                  autovalidate: true,
+                  validator: (_) {
+                    //return state.validPassword ? null : 'Invalid Password';
+                  },
+                ),
+                RaisedButton(
+                  onPressed: state is! AuthenticationLoading
+                      ? _onLoginButtonPressed
+                      : null,
+                  child: Text('Login'),
+                ),
               ],
             ),
           );
-
         },
       ),
     );

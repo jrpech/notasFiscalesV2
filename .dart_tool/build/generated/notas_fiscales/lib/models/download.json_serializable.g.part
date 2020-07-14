@@ -1,0 +1,17 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Download _$DownloadFromJson(Map<String, dynamic> json) {
+  return Download(
+    id: json['id'] as String,
+    name: json['name'] as String,
+    file: json['file'] as String,
+  );
+}
+
+Map<String, dynamic> _$DownloadToJson(Download instance) => <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
+      'file': instance.file,
+    };
