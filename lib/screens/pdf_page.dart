@@ -30,7 +30,7 @@ class _PDFScreenState extends State<PDFContainer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.blueGrey,
       ),
       body: Center(
           child: _isLoading

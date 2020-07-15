@@ -9,7 +9,10 @@ class WebViewContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(backgroundColor: Colors.redAccent, ),
+        appBar: AppBar(
+          title: Text("Detalle"),
+          backgroundColor: Colors.blueGrey,
+        ),
         body: Column(
           children: [
             Expanded(

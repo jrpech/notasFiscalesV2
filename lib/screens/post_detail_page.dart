@@ -97,7 +97,7 @@ class PostDetailPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Noticia"),
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Colors.blueGrey,
         ),
         body: getContent(context));
   }
