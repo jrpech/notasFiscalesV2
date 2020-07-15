@@ -12,7 +12,7 @@ class PostDetailPage extends StatelessWidget {
   PostDetailPage(this.post);
 
   Widget getContent(BuildContext context) {
-    var widthScreen = MediaQuery.of(context).size.width * 0.92;
+    var widthScreen = MediaQuery.of(context).size.width * 0.95;
 
     return BlocProvider<PostsBloc>(
       create: (context) {
@@ -26,11 +26,15 @@ class PostDetailPage extends StatelessWidget {
             return ListView(
               shrinkWrap: true,
               physics: ClampingScrollPhysics(),
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(0),
               children: <Widget>[
+                Image.network(Utils.getURLImg(post.picture_url),
+                    width: widthScreen, height: 200, fit: BoxFit.fitWidth),
+                SizedBox(height: 10),
                 Row(
                   children: <Widget>[
                     Container(
+                        padding: const EdgeInsets.all(16),
                         width: widthScreen,
                         child: Text(
                           state.post.post_title,
@@ -41,17 +45,10 @@ class PostDetailPage extends StatelessWidget {
                         ))
                   ],
                 ),
-                SizedBox(height: 10),
-                Row(
-                  children: <Widget>[
-                    Image.network(Utils.getURLImg(post.picture_url),
-                        width: widthScreen, fit: BoxFit.fitWidth)
-                  ],
-                ),
-                SizedBox(height: 10),
                 Row(
                   children: <Widget>[
                     Container(
+                        padding: const EdgeInsets.all(16),
                         width: widthScreen,
                         child: Html(
                           data: state.post.post_content,
