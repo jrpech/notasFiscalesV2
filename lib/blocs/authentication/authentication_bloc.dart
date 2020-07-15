@@ -9,12 +9,24 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   final UserRepository userRepository;
 
+  final RegExp _emailRegExp = RegExp(
+    r'^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$',
+  );
+
   @override
   AuthenticationState get initialState => AuthenticationUnauthenticated();
 
   AuthenticationBloc({@required this.userRepository})
       : assert(userRepository != null),
         super(null);
+
+  bool _isUserValid(String email) {
+    return _emailRegExp.hasMatch(email);
+  }
+
+  bool _isPasswordValid(String password) {
+    return password.length > 0;
+  }
 
   @override
   Stream<AuthenticationState> mapEventToState(
@@ -34,10 +46,18 @@ class AuthenticationBloc
     if (event is LoginButtonPressed) {
       yield AuthenticationLoading();
 
-      /*bool validUser = this._isUserValid(event.username);
-      bool validPassword = this._isPasswordValid(event.password);*/
+      bool validUser = this._isUserValid(event.username);
+      bool validPassword = this._isPasswordValid(event.password);
 
       try {
+        if (validUser == false) {
+          throw ("Usuario no valido");
+        }
+
+        if (validPassword == false) {
+          throw ("Password no valido");
+        }
+
         final token = await userRepository.authenticate(
           username: event.username,
           password: event.password,

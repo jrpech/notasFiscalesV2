@@ -99,12 +99,23 @@ class _LoginFormState extends State<LoginForm> {
                       },
                     ),
                     SizedBox(height: 10),
-                    RaisedButton(
-                      onPressed: state is! AuthenticationLoading
-                          ? _onLoginButtonPressed
-                          : null,
-                      child: Text('Login'),
-                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        RaisedButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                              side: BorderSide(color: Colors.blueGrey)),
+                          onPressed: state is! AuthenticationLoading
+                              ? _onLoginButtonPressed
+                              : null,
+                          color: Colors.blueGrey,
+                          textColor: Colors.white,
+                          child: Text("Ingresar".toUpperCase(),
+                              style: TextStyle(fontSize: 14)),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),

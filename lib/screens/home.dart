@@ -10,11 +10,9 @@ import 'package:notas_fiscales/widgets/tab_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class HomePage extends StatelessWidget {
-
   Widget getBodyWidget(AppTab tab) {
-    switch(tab) {
+    switch (tab) {
       case AppTab.news:
         return NewsPage();
       case AppTab.books:
@@ -37,7 +35,7 @@ class HomePage extends StatelessWidget {
       builder: (context, activeTab) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.redAccent,            
+            backgroundColor: Colors.blueGrey,
             title: Text(Constants.tabs[activeTab.index].title),
           ),
           body: getBodyWidget(activeTab),

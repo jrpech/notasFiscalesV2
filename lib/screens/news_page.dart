@@ -8,7 +8,7 @@ import 'package:notas_fiscales/utils/Utils.dart';
 
 class NewsPage extends StatelessWidget {
   Widget getContent(BuildContext context) {
-    var widthScreen = MediaQuery.of(context).size.width * 0.92;
+    var widthScreen = MediaQuery.of(context).size.width * 0.955;
 
     return BlocProvider<PostsBloc>(
       create: (context) {
@@ -31,6 +31,20 @@ class NewsPage extends StatelessWidget {
                         children: <Widget>[
                           Row(
                             children: <Widget>[
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(25.0),
+                                child: Image.network(
+                                    Utils.getURLImg(
+                                        state.posts[index].picture_url),
+                                    width: widthScreen,
+                                    height: 190,
+                                    fit: BoxFit.fitWidth),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Row(
+                            children: <Widget>[
                               Container(
                                   width: widthScreen,
                                   child: Text(
@@ -38,22 +52,12 @@ class NewsPage extends StatelessWidget {
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold),
                                     overflow: TextOverflow.ellipsis,
-                                    maxLines: 3,
-                                    textAlign: TextAlign.justify,
+                                    maxLines: 4,
+                                    textAlign: TextAlign.start,
                                   ))
                             ],
                           ),
-                          SizedBox(height: 10),
-                          Row(
-                            children: <Widget>[
-                              Image.network(
-                                  Utils.getURLImg(
-                                      state.posts[index].picture_url),
-                                  width: widthScreen,
-                                  fit: BoxFit.fitWidth)
-                            ],
-                          ),
-                          Row(
+                          /*Row(
                             children: <Widget>[
                               Container(
                                   width: widthScreen,
@@ -64,7 +68,7 @@ class NewsPage extends StatelessWidget {
                                     textAlign: TextAlign.justify,
                                   ))
                             ],
-                          ),
+                          ),*/
                           SizedBox(height: 10),
                           Row(
                             children: <Widget>[
@@ -72,14 +76,18 @@ class NewsPage extends StatelessWidget {
                                 alignment: Alignment.centerRight,
                                 width: widthScreen,
                                 child: RaisedButton(
-                                  color: Colors.blueGrey,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(18.0),
+                                      side: BorderSide(color: Colors.blueGrey)),
                                   onPressed: () async {
                                     await Navigator.pushNamed(
                                         context, Routes.post_detail,
                                         arguments: state.posts[index]);
                                   },
-                                  child: const Text('Continuar leyendo',
-                                      style: TextStyle(color: Colors.white)),
+                                  color: Colors.blueGrey,
+                                  textColor: Colors.white,
+                                  child: Text("Leer artículo",
+                                      style: TextStyle(fontSize: 14)),
                                 ),
                               )
                             ],
