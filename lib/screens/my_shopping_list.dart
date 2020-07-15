@@ -125,7 +125,7 @@ class MyShoppingListPage extends StatelessWidget {
               ],
             );
           }
-          if (state is BooksLoading) {
+          if (state is MyListLoading) {
             return Center(
               child: CircularProgressIndicator(),
             );
