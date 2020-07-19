@@ -139,8 +139,8 @@ class ApiProvider {
   }
 
   Future<ResponseProducts> products(String customer_id) async {
-    //final response = await this._get(_PRODUCTS + customer_id);
-    final response = await this._get(_PRODUCTS + "103458");
+    final response = await this._get(_PRODUCTS + customer_id);
+    //final response = await this._get(_PRODUCTS + "103458");
     Map<String, dynamic> json = jsonDecode(response.body);
     print(json);
     return ResponseProducts.fromJson(json);
